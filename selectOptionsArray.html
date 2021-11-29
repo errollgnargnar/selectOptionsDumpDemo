@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Options Query All Array</title>
+    <style>
+        *{
+            background-color: black;
+            color: lime;
+            margin: 3px;
+        }
+    </style>
+</head>
+<body>
+    <button class='dumpBtn'>Dump Me</button>
+
+    <select class='groupSel'></select>
+    <select class='groupSel'></select>
+    <select class='groupSel'></select>
+    <select class='groupSel'></select>
+    <select class='groupSel'></select>
+    <select class='groupSel'></select>
+
+    <script>
+        const dumpBtn = document.querySelector('.dumpBtn');
+        const groupSelAll = document.getElementsByClassName('groupSel');
+
+        let arrData = [];
+        let dataCount = 0;
+
+        dumpBtn.onclick = createDump;
+
+        function createDump(){
+            arrData.push(dataCount);
+            const newBtn = document.createElement('button');
+            newBtn.textContent = dataCount;
+            document.body.append(newBtn);
+
+            newBtn.onclick = () => {
+                console.log(newBtn.textContent);
+                removeOptionFromAll(newBtn.textContent);
+                newBtn.parentElement.removeChild(newBtn);
+            }
+
+            addOptionToAll();
+            dataCount++;
+        }
+
+        function addOptionToAll(){
+            for(let i = 0; i < groupSelAll.length; i++){
+                const newOption = document.createElement('option');
+                newOption.textContent = dataCount;
+                groupSelAll[i].append(newOption);
+            }
+        }
+
+        function removeOptionFromAll(optionSel){
+            for(let i = 0; i < groupSelAll.length; i++){
+                for (let j = 0; j < groupSelAll[i].length; j++){
+                    if (groupSelAll[i][j].textContent === optionSel){
+                        groupSelAll[i][j].replaceWith();
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
