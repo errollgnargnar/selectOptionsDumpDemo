@@ -17,3 +17,6 @@ So when you go through the array of groupSelAll, you also have to go through the
                 }
             }
         }
+Because the groupSelAll doesn't exactly behave as array, the slice and splice methods would not work for removing the option element. 
+        .replaceWith() //no paramater set intentionally
+^^ however did the trick!
