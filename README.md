@@ -1,6 +1,6 @@
-# select Options Dump Demo
+# Select Options Dump Demo
 
-Demonstrates a feature of adding options to a series of Select elements as well as removing any created element from all Selects.
+*Demonstrates a feature of adding options to a series of Select elements as well as removing any created element from all Selects.*
 
     const groupSelAll = getElementsbyClassName('groupSel');
 
